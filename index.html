@@ -55,8 +55,8 @@
     .logo-wrap {
       display:flex;
       align-items:center;
-      transform: scale(1.2);
-      transform-origin: left ;
+      transform: scale(1.6);
+      transform-origin: left center;
     }
 
     .brand h1{
@@ -196,12 +196,8 @@
     <header>
       <a class="brand" href="#" aria-label="Majheri home">
         <div class="logo-wrap" aria-hidden="true">
-          <!-- Logo SVG -->
-          <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="64" height="64" rx="12" fill="#ffffff"/>
-            <path d="M10 44 L26 20 L34 32 L46 12 L54 28" stroke="#0d1a2d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="34" cy="28" r="4" fill="#d32f2f"/>
-          </svg>
+          <!-- Replaced SVG with logo.png (must be in same folder) -->
+          <img src="logo.png" alt="Majheri Logo" style="width:48px; height:auto; display:block;">
         </div>
         <div>
           <h1>Majheri</h1>
