@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Majheri Kits</title>
-
+  <title>Majheri Kits </title>
   <meta name="description" content="Majheri Kits — compact, reliable travel first aid kits crafted for Nepal's travellers, trekkers and riders. Pre-order now." />
   <meta name="theme-color" content="#0d1a2d" />
 
@@ -23,6 +22,8 @@
     body{
       margin:0;
       font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
       color:var(--ink);
       background: linear-gradient(180deg,#fbfdff 0%, #f7f9fb 100%);
       line-height:1.45;
@@ -42,7 +43,6 @@
       gap:16px;
       padding:10px 0;
     }
-
     .brand {
       display:flex;
       align-items:center;
@@ -51,11 +51,12 @@
       color:inherit;
     }
 
+    /* ✅ Increased logo size */
     .logo-wrap {
       display:flex;
       align-items:center;
       transform: scale(3.6);
-      transform-origin:left center;
+      transform-origin: left center;
     }
 
     .brand h1{
@@ -64,9 +65,14 @@
       letter-spacing:0.02em;
       font-weight:700;
     }
+    .mini {
+      font-size:13px;
+      color:var(--muted);
+      margin-top:2px;
+      font-weight:500;
+    }
 
     nav { display:flex; gap:12px; align-items:center; }
-
     a.btn {
       padding:10px 14px;
       border-radius:10px;
@@ -93,8 +99,7 @@
       gap:28px;
       align-items:center;
     }
-
-    .eyebrow { color:var(--muted); font-weight:600; font-size:13px; text-transform:uppercase; }
+    .eyebrow { color:var(--muted); font-weight:600; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; }
     h2 { font-size:40px; margin:10px 0 12px; line-height:1.05; }
     p.lead { font-size:18px; color:var(--muted); max-width:46ch; margin:0; }
 
@@ -102,7 +107,7 @@
       background: linear-gradient(180deg,#fff,#fcfcff);
       border-radius:var(--radius);
       padding:22px;
-      box-shadow:0 8px 30px rgba(13,26,45,0.06);
+      box-shadow: 0 8px 30px rgba(13,26,45,0.06);
       display:flex;
       flex-direction:column;
       gap:14px;
@@ -122,13 +127,50 @@
       position:relative;
       overflow:hidden;
     }
+    .kit-visual::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient( circle at 10% 20%, rgba(211,47,47,0.06), transparent 10% );
+      pointer-events:none;
+    }
 
+    /* Features */
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:18px;
+      margin-top:28px;
+    }
     .card {
       background:white;
       border-radius:12px;
-      box-shadow:0 4px 18px rgba(13,26,45,0.04);
+      padding:18px;
+      box-shadow: 0 4px 18px rgba(13,26,45,0.04);
+    }
+    .card h4 { margin:0 0 8px; font-size:16px }
+    .card p { margin:0; color:var(--muted); font-size:14px }
+
+    /* What's inside */
+    .two-col {
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:22px;
+      margin-top:28px;
+    }
+    ul.kit-list {
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+    ul.kit-list li {
+      padding:10px 0;
+      border-bottom:1px dashed #eee;
+      color:var(--muted);
+      font-size:15px;
     }
 
+    /* Footer */
     footer {
       margin-top:44px;
       padding:24px;
@@ -137,87 +179,173 @@
       font-size:14px;
     }
 
+    /* Small screens */
     @media (max-width:900px){
-      .hero { grid-template-columns:1fr; }
-      header { flex-direction:column; align-items:flex-start; }
+      .hero { grid-template-columns: 1fr; }
+      .two-col { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      header { gap:12px; flex-direction:column; align-items:flex-start }
+      nav { width:100%; justify-content:flex-end }
     }
   </style>
 </head>
 
 <body>
-<div class="site">
+  <div class="site" role="document" aria-label="Majheri Kits website">
+    <!-- Header -->
+    <header>
+      <a class="brand" href="#" aria-label="Majheri home">
+        <div class="logo-wrap" aria-hidden="true">
+          <img src="logo.png" alt="Majheri Logo" style="width:48px; height:auto; display:block;">
+        </div>
+        <div>
+          <h1>Majheri</h1>
+          <div class="mini">Majheri Kits</div>
+        </div>
+      </a>
 
-  <!-- HEADER -->
-  <header>
-    <a class="brand" href="#">
-      <div class="logo-wrap">
-        <img src="logo.png" alt="Majheri Logo" style="width:48px; height:auto;">
-      </div>
-    </a>
+      <nav aria-label="Primary">
+        <a class="btn ghost" href="mailto:ceo.majheri@gmail.com?subject=Majheri%20Kits%20Preorder">Preorder</a>
+        <a class="btn primary" href="https://wa.me/9779866767850" target="_blank">WhatsApp</a>
+      </nav>
+    </header>
 
-    <nav>
-      <a class="btn ghost" href="mailto:ceo.majheri@gmail.com?subject=Majheri%20Kits%20Preorder">Preorder</a>
-      <a class="btn primary" href="https://wa.me/9779866767850">WhatsApp</a>
-    </nav>
-  </header>
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <div class="eyebrow">Travel first aid • Nepal</div>
+        <h2 id="hero-title">Compact travel first aid kits — made for Nepal</h2>
+        <p class="lead">Majheri Kits keeps you prepared on the road, trail, and city. Curated essentials, durable packaging, and locally-sourced components — small in size, big on reliability.</p>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <div class="eyebrow">Travel first aid • Nepal</div>
-      <h2>Compact travel first aid kits — made for Nepal</h2>
-      <p class="lead">Majheri Kits keeps you prepared on the road, trail, and city.</p>
+        <div style="margin-top:20px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn primary" href="mailto:ceo.majheri@gmail.com?subject=Preorder%20Majheri%20Kit">Preorder via Email</a>
+          <a class="btn ghost" href="https://wa.me/9779866767850">Order on WhatsApp</a>
+        </div>
 
-      <div style="margin-top:20px; display:flex; gap:12px; flex-wrap:wrap;">
-        <a class="btn primary" href="mailto:ceo.majheri@gmail.com?subject=Preorder%20Majheri%20Kit">Preorder</a>
-        <a class="btn ghost" href="https://wa.me/9779866767850">Order on WhatsApp</a>
-      </div>
-    </div>
-
-    <aside class="hero-card">
-      <div class="kit-visual">
-        <svg width="160" height="160" viewBox="0 0 160 160">
-          <rect x="8" y="28" rx="12" width="144" height="104" fill="#fff" stroke="#e6eef8" stroke-width="6"/>
-          <rect x="28" y="50" width="104" height="60" rx="8" fill="#eaf4ff"/>
-          <path d="M80 62 v36" stroke="#0d1a2d" stroke-width="8" stroke-linecap="round"/>
-          <path d="M66 74 h28" stroke="#0d1a2d" stroke-width="6" stroke-linecap="round"/>
-          <circle cx="124" cy="40" r="8" fill="#d32f2f"/>
-        </svg>
-      </div>
-    </aside>
-  </section>
-
-  <!-- ⭐ PRODUCT SECTION (fixed and placed correctly) -->
-  <section id="products" style="margin-top:40px;">
-    <h2 style="font-size:28px; margin-bottom:20px;">Our Kits</h2>
-
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:20px;">
-
-      <!-- Kit 1 -->
-      <div class="card" style="padding:16px;">
-        <img src="images/kit1.png" style="width:100%; border-radius:10px;">
-        <h3 style="margin:12px 0 6px;">Travel First Aid Kit</h3>
-        <p style="color:var(--muted); font-size:14px;">Compact portable kit for trekking & travel.</p>
-        <a class="btn primary" href="https://wa.me/9779866767850" style="margin-top:10px; display:inline-block;">Order</a>
+        <div style="margin-top:20px; color:var(--muted); font-size:14px;">
+          Free delivery in Kathmandu for launch orders • Secure local payment options
+        </div>
       </div>
 
-      <!-- Kit 2 -->
-      <div class="card" style="padding:16px;">
-        <img src="images/kit2.png" style="width:100%; border-radius:10px;">
-        <h3 style="margin:12px 0 6px;">Portable Travel Kit</h3>
-        <p style="color:var(--muted); font-size:14px;">Lightweight kit for daily carry.</p>
-        <a class="btn primary" href="mailto:ceo.majheri@gmail.com?subject=Portable%20Kit%20Order" style="margin-top:10px; display:inline-block;">Preorder</a>
+      <aside class="hero-card" aria-label="Product preview">
+        <div class="kit-visual">
+          <!-- Product Illustration -->
+          <svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="8" y="28" rx="12" width="144" height="104" fill="#fff" stroke="#e6eef8" stroke-width="6"/>
+            <rect x="28" y="50" width="104" height="60" rx="8" fill="#eaf4ff"/>
+            <path d="M80 62 v36" stroke="#0d1a2d" stroke-width="8" stroke-linecap="round"/>
+            <path d="M66 74 h28" stroke="#0d1a2d" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="124" cy="40" r="8" fill="#d32f2f"/>
+          </svg>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;">
+          <div style="font-weight:700">Starter Travel Kit</div>
+          <div style="color:var(--muted);font-size:14px">Bandages • Antiseptic • Scissors • Pain relief • Compact instructions</div>
+          <div style="margin-top:10px; display:flex; gap:10px;">
+            <a class="btn primary" href="mailto:ceo.majheri@gmail.com?subject=Reserve%20Starter%20Kit">Reserve</a>
+            <a class="btn ghost" href="#whats-inside">See contents</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Product Showcase -->
+    <section id="products" style="margin-top:40px;">
+      <h2 style="font-size:28px; margin-bottom:20px;">Our Kits</h2>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:20px;">
+
+        <!-- Product 1 -->
+        <div class="card" style="padding:16px;">
+          <img src="images/kit1.png" alt="Majheri Travel First Aid Kit" style="width:100%; border-radius:10px;">
+          <h3 style="margin:12px 0 6px;">Travel First Aid Kit</h3>
+          <p style="color:var(--muted); font-size:14px;">Compact portable kit for trekking & travel.</p>
+          <a class="btn primary" href="https://wa.me/9779866767850" style="margin-top:10px; display:inline-block;">Order</a>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="card" style="padding:16px;">
+          <img src="images/kit2.png" alt="Majheri Portable Kit" style="width:100%; border-radius:10px;">
+          <h3 style="margin:12px 0 6px;">Portable Travel Kit</h3>
+          <p style="color:var(--muted); font-size:14px;">Lightweight everyday kit for commuters.</p>
+          <a class="btn primary" href="mailto:ceo.majheri@gmail.com?subject=Portable%20Kit%20Order" style="margin-top:10px; display:inline-block;">Preorder</a>
+        </div>
+
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- Features -->
+    <section style="margin-top:30px;">
+      <div class="grid" role="list">
+        <div class="card" role="listitem">
+          <h4>Travel-friendly</h4>
+          <p>Compact sizes built to fit backpacks, bike bags and luggage pockets.</p>
+        </div>
+        <div class="card" role="listitem">
+          <h4>Quality components</h4>
+          <p>Bandages, sterile gauze, antiseptic, tools and instructions with local sourcing.</p>
+        </div>
+        <div class="card" role="listitem">
+          <h4>Designed for Nepal</h4>
+          <p>Durable packaging and item selection tailored to our terrains and travel patterns.</p>
+        </div>
+      </div>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div>Contact: <strong>+977 9866767850</strong> • <a href="mailto:ceo.majheri@gmail.com">ceo.majheri@gmail.com</a></div>
-    <div style="margin-top:8px;">Majheri Kits — Kathmandu, Nepal</div>
-  </footer>
+    <!-- What's inside -->
+    <section id="whats-inside" style="margin-top:28px;">
+      <div class="two-col">
+        <div class="card">
+          <h3 style="margin-top:0">What's inside — Sample Starter Kit</h3>
+          <ul class="kit-list">
+            <li>Adhesive bandages (multiple sizes)</li>
+            <li>Sterile gauze pads & tape</li>
+            <li>Antiseptic wipes & ointment</li>
+            <li>Mini scissors, tweezers & safety pins</li>
+            <li>Elastic bandage roll</li>
+            <li>Pain relief (paracetamol)</li>
+            <li>Emergency whistle & instructions card</li>
+          </ul>
+        </div>
 
-</div>
+        <div class="card" aria-label="Pricing and order">
+          <h4 style="margin-top:0">Preorder & Pricing</h4>
+          <p style="color:var(--muted); margin-bottom:12px">Launch price & limited stock. Contact to reserve early access.</p>
+          <div style="display:flex;gap:8px;flex-direction:column">
+            <a class="btn primary" href="mailto:ceo.majheri@gmail.com?subject=Preorder%20Majheri%20Starter%20Kit">Preorder by Email</a>
+            <a class="btn ghost" href="https://wa.me/9779866767850">Reserve on WhatsApp</a>
+          </div>
+          <div style="margin-top:12px;color:var(--muted);font-size:13px">
+            Delivery: Kathmandu (2–3 days) • Nationwide shipping available
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Small CTA -->
+    <section style="margin-top:28px; text-align:center;">
+      <div class="card" style="display:inline-block; text-align:center;">
+        <strong>Want a custom kit (school, trek, corporate)?</strong>
+        <div style="margin-top:10px">
+          <a class="btn primary" href="mailto:ceo.majheri@gmail.com?subject=Custom%20Majheri%20Kit%20Inquiry">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div>Contact: <strong>+977 9866767850</strong> • <a href="mailto:ceo.majheri@gmail.com">ceo.majheri@gmail.com</a></div>
+      <div style="margin-top:8px;color:var(--muted);font-size:13px">Majheri Kits — Kathmandu, Nepal</div>
+      <div style="margin-top:8px;color:var(--muted);font-size:13px">© <span id="year"></span> Majheri</div>
+    </footer>
+
+  </div>
+
+  <script>
+    // set year
+    try { document.getElementById('year').textContent = new Date().getFullYear(); } catch(e){}
+  </script>
 </body>
 </html>
+
