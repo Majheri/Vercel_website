@@ -79,3 +79,31 @@ a { text-decoration: none; }
   .mobile-menu-toggle { display: block; font-size: 1.8rem; cursor: pointer; }
   .hero h2 { font-size: 2.5rem; }
 }
+/* Floating WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 35px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  z-index: 999;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-float:hover {
+  background-color: #128C7E;
+  transform: scale(1.1);
+}
+
+[data-theme="dark"] .whatsapp-float {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
