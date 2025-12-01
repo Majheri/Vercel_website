@@ -3,9 +3,31 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Majheri Kits </title>
-  <meta name="description" content="Majheri Kits — compact, reliable travel first aid kits crafted for Nepal's travellers, trekkers and riders. Pre-order now." />
+  <title>Majheri Kits — Compact First Aid for Nepal Travel & Home</title>
+  <meta name="description" content="Majheri Kits — compact, reliable travel first aid kits crafted for Nepal's travellers, trekkers and riders. Curated essentials, durable packaging, and local sourcing. Pre-order now." />
   <meta name="theme-color" content="#0d1a2d" />
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Majheri Travel First Aid Kit",
+    "description": "Compact, reliable travel first aid kit tailored for Nepal's terrains and travel patterns.",
+    "brand": {
+      "@type": "Brand",
+      "name": "Majheri Kits"
+    },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "NPR",
+      "availability": "https://schema.org/PreOrder",
+      "url": "https://majherikits.vercel.app/"
+    }
+  }
+  </script>
+
+  <link rel="preload" href="logo.png" as="image">
+  <link rel="preload" href="images/Kit1.png" as="image">
 
   <style>
     :root{
@@ -15,18 +37,19 @@
       --ink:#0d1a2d;
       --maxw:1100px;
       --radius:12px;
+      --social-icon-size:20px;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
       color:var(--ink);
       background: linear-gradient(180deg,#fbfdff 0%, #f7f9fb 100%);
-      line-height:1.45;
+      line-height:1.5;
       padding:36px 20px;
     }
 
@@ -50,29 +73,24 @@
       text-decoration:none;
       color:inherit;
     }
-
-    /* ✅ Increased logo size */
     .logo-wrap {
       display:flex;
       align-items:center;
-      transform: scale(3.6);
-      transform-origin: left center;
+      width:50px;
     }
-
+    .brand img { width: 100%; height: auto; }
     .brand h1{
       font-size:20px;
       margin:0;
       letter-spacing:0.02em;
       font-weight:700;
     }
-    .mini {
-      font-size:13px;
-      color:var(--muted);
-      margin-top:2px;
-      font-weight:500;
-    }
 
     nav { display:flex; gap:12px; align-items:center; }
+    .social-nav { display:flex; gap:10px; }
+    .social-nav a svg { width:var(--social-icon-size); height:var(--social-icon-size); color:var(--ink); opacity:0.6; transition:opacity 0.2s; }
+    .social-nav a:hover svg { opacity:1; }
+
     a.btn {
       padding:10px 14px;
       border-radius:10px;
@@ -80,16 +98,16 @@
       font-weight:600;
       display:inline-block;
       border:2px solid transparent;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
     }
-    a.primary {
-      background:var(--accent);
-      color:#fff;
-    }
-    a.ghost {
-      background:transparent;
-      color:var(--accent);
-      border-color:var(--accent);
-    }
+    a.primary { background:var(--accent); color:#fff; }
+    a.primary:hover { background:#c42828; }
+    a.ghost { background:transparent; color:var(--accent); border-color:var(--accent); }
+    a.ghost:hover { background:rgba(211,47,47,0.05); }
+
+    /* Common Section Styles */
+    section { margin-top: 60px; }
+    h2.section-title { font-size: 28px; margin-bottom: 24px; text-align: center; }
 
     /* Hero */
     .hero {
@@ -100,7 +118,7 @@
       align-items:center;
     }
     .eyebrow { color:var(--muted); font-weight:600; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; }
-    h2 { font-size:40px; margin:10px 0 12px; line-height:1.05; }
+    h2.hero-title { font-size:40px; margin:10px 0 12px; line-height:1.05; }
     p.lead { font-size:18px; color:var(--muted); max-width:46ch; margin:0; }
 
     .hero-card{
@@ -112,7 +130,6 @@
       flex-direction:column;
       gap:14px;
     }
-
     .kit-visual {
       width:100%;
       height:260px;
@@ -135,12 +152,16 @@
       pointer-events:none;
     }
 
-    /* Features */
+    /* Products & Features Grid */
     .grid {
       display:grid;
       grid-template-columns: repeat(3,1fr);
       gap:18px;
-      margin-top:28px;
+    }
+    .product-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap:20px;
     }
     .card {
       background:white;
@@ -150,6 +171,29 @@
     }
     .card h4 { margin:0 0 8px; font-size:16px }
     .card p { margin:0; color:var(--muted); font-size:14px }
+
+    /* Why Choose Us (New) */
+    .feature-icon { font-size: 24px; margin-bottom: 12px; display: block; }
+
+    /* Testimonial (New) */
+    .testimonial-card {
+      background: #fff;
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 18px rgba(13,26,45,0.04);
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .testimonial-text { font-size: 18px; font-style: italic; color: var(--ink); }
+    .testimonial-author { margin-top: 16px; font-weight: 600; color: var(--muted); }
+
+    /* FAQ (New) */
+    .faq-item { border-bottom: 1px solid #eee; padding: 16px 0; }
+    .faq-question { font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .faq-answer { margin-top: 10px; color: var(--muted); display: none; }
+    .faq-item.active .faq-answer { display: block; }
+    .faq-toggle { font-size: 18px; color: var(--muted); }
 
     /* What's inside */
     .two-col {
@@ -166,184 +210,55 @@
     ul.kit-list li {
       padding:10px 0;
       border-bottom:1px dashed #eee;
-      color:var(--muted);
+      color:var(--ink);
       font-size:15px;
+      display:flex;
+      align-items:center;
     }
+    ul.kit-list li::before {
+      content: "🩹";
+      margin-right: 8px;
+      font-size: 14px;
+    }
+    ul.kit-list li:last-child { border-bottom: none; }
 
-    /* Footer */
+    /* Footer (New Layout) */
     footer {
-      margin-top:44px;
-      padding:24px;
-      text-align:center;
-      color:var(--muted);
-      font-size:14px;
+      margin-top: 60px;
+      padding: 40px 0;
+      border-top: 1px solid #eee;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 32px;
+    }
+    .footer-col h5 { color: var(--ink); font-size: 16px; margin: 0 0 16px; }
+    .footer-links { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-bottom {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+      text-align: center;
+      font-size: 13px;
     }
 
     /* Small screens */
     @media (max-width:900px){
       .hero { grid-template-columns: 1fr; }
       .two-col { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: 1fr; }
+      .grid, .footer-grid { grid-template-columns: 1fr; }
       header { gap:12px; flex-direction:column; align-items:flex-start }
-      nav { width:100%; justify-content:flex-end }
+      nav { width:100%; justify-content:space-between; }
+      h2.hero-title { font-size: 32px; }
     }
   </style>
-</head>
 
-<body>
-  <div class="site" role="document" aria-label="Majheri Kits website">
-    <!-- Header -->
-    <header>
-      <a class="brand" href="#" aria-label="Majheri home">
-        <div class="logo-wrap" aria-hidden="true">
-          <img src="logo.png" alt="Majheri Logo" style="width:48px; height:auto; display:block;">
-        </div>
-        <div>
-        </div>
-      </a>
-
-      <nav aria-label="Primary">
-        <a class="btn ghost" href="mailto:ceo.majheri@gmail.com?subject=Majheri%20Kits%20Preorder">Preorder</a>
-        <a class="btn primary" href="https://wa.me/9779866767850" target="_blank">WhatsApp</a>
-      </nav>
-    </header>
-
-    <!-- Hero -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div>
-        <div class="eyebrow">Travel first aid • Nepal</div>
-        <h2 id="hero-title">Compact travel first aid kits — made for Nepal</h2>
-        <p class="lead">Majheri Kits keeps you prepared on the road, trail, and city. Curated essentials, durable packaging, and locally-sourced components — small in size, big on reliability.</p>
-
-        <div style="margin-top:20px; display:flex; gap:12px; flex-wrap:wrap;">
-          <a class="btn primary" href="mailto:ceo.majheri@gmail.com?subject=Preorder%20Majheri%20Kit">Preorder via Email</a>
-          <a class="btn ghost" href="https://wa.me/9779866767850">Order on WhatsApp</a>
-        </div>
-
-        <div style="margin-top:20px; color:var(--muted); font-size:14px;">
-          Free delivery in Kathmandu for launch orders • Secure local payment options
-        </div>
-      </div>
-
-      <aside class="hero-card" aria-label="Product preview">
-        <div class="kit-visual">
-          <!-- Product Illustration -->
-          <svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="8" y="28" rx="12" width="144" height="104" fill="#fff" stroke="#e6eef8" stroke-width="6"/>
-            <rect x="28" y="50" width="104" height="60" rx="8" fill="#eaf4ff"/>
-            <path d="M80 62 v36" stroke="#0d1a2d" stroke-width="8" stroke-linecap="round"/>
-            <path d="M66 74 h28" stroke="#0d1a2d" stroke-width="6" stroke-linecap="round"/>
-            <circle cx="124" cy="40" r="8" fill="#d32f2f"/>
-          </svg>
-        </div>
-
-        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;">
-          <div style="font-weight:700">Starter Travel Kit</div>
-          <div style="color:var(--muted);font-size:14px">Bandages • Antiseptic • Scissors • Pain relief • Compact instructions</div>
-          <div style="margin-top:10px; display:flex; gap:10px;">
-            <a class="btn primary" href="mailto:ceo.majheri@gmail.com?subject=Reserve%20Starter%20Kit">Reserve</a>
-            <a class="btn ghost" href="#whats-inside">See contents</a>
-          </div>
-        </div>
-      </aside>
-    </section>
-
-    <!-- Product Showcase -->
-    <section id="products" style="margin-top:40px;">
-      <h2 style="font-size:28px; margin-bottom:20px;">Our Kits</h2>
-
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:20px;">
-
-        <!-- Product 1 -->
-        <div class="card" style="padding:16px;">
-          <img src="images/Kit1.png" alt="Majheri Travel First Aid Kit" style="width:100%; border-radius:10px;">
-          <h3 style="margin:12px 0 6px;">Travel First Aid Kit</h3>
-          <p style="color:var(--muted); font-size:14px;">Compact portable kit for trekking & travel.</p>
-          <a class="btn primary" href="https://wa.me/9779866767850" style="margin-top:10px; display:inline-block;">Order</a>
-        </div>
-
-        <!-- Product 2 -->
-        <div class="card" style="padding:16px;">
-          <img src="images/Kit2.png" alt="Majheri  Home First Aid Kit" style="width:100%; border-radius:10px;">
-          <h3 style="margin:12px 0 6px;">Majheri  Home First Aid Kit</h3>
-          <p style="color:var(--muted); font-size:14px;">Lightweight everyday kit.</p>
-          <a class="btn primary" href="mailto:ceo.majheri@gmail.com?subject=Portable%20Kit%20Order" style="margin-top:10px; display:inline-block;">Preorder</a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Features -->
-    <section style="margin-top:30px;">
-      <div class="grid" role="list">
-        <div class="card" role="listitem">
-          <h4>Travel-friendly</h4>
-          <p>Compact sizes built to fit backpacks, bike bags and luggage pockets.</p>
-        </div>
-        <div class="card" role="listitem">
-          <h4>Quality components</h4>
-          <p>Bandages, sterile gauze, antiseptic, tools and instructions with local sourcing.</p>
-        </div>
-        <div class="card" role="listitem">
-          <h4>Designed for Nepal</h4>
-          <p>Durable packaging and item selection tailored to our terrains and travel patterns.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- What's inside -->
-    <section id="whats-inside" style="margin-top:28px;">
-      <div class="two-col">
-        <div class="card">
-          <h3 style="margin-top:0">What's inside — Sample Starter Kit</h3>
-          <ul class="kit-list">
-            <li>Adhesive bandages (multiple sizes)</li>
-            <li>Sterile gauze pads & tape</li>
-            <li>Antiseptic wipes & ointment</li>
-            <li>Mini scissors, tweezers & safety pins</li>
-            <li>Elastic bandage roll</li>
-            <li>Pain relief (paracetamol)</li>
-            <li>Emergency whistle & instructions card</li>
-          </ul>
-        </div>
-
-        <div class="card" aria-label="Pricing and order">
-          <h4 style="margin-top:0">Preorder & Pricing</h4>
-          <p style="color:var(--muted); margin-bottom:12px">Launch price & limited stock. Contact to reserve early access.</p>
-          <div style="display:flex;gap:8px;flex-direction:column">
-            <a class="btn primary" href="mailto:ceo.majheri@gmail.com?subject=Preorder%20Majheri%20Starter%20Kit">Preorder by Email</a>
-            <a class="btn ghost" href="https://wa.me/9779866767850">Reserve on WhatsApp</a>
-          </div>
-          <div style="margin-top:12px;color:var(--muted);font-size:13px">
-            Delivery: Kathmandu (2–3 days) • Nationwide shipping available
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Small CTA -->
-    <section style="margin-top:28px; text-align:center;">
-      <div class="card" style="display:inline-block; text-align:center;">
-        <strong>Want a custom kit (school, trek, corporate)?</strong>
-        <div style="margin-top:10px">
-          <a class="btn primary" href="mailto:ceo.majheri@gmail.com?subject=Custom%20Majheri%20Kit%20Inquiry">Contact Us</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <div>Contact: <strong>+977 9866767850</strong> • <a href="mailto:ceo.majheri@gmail.com">ceo.majheri@gmail.com</a></div>
-      <div style="margin-top:8px;color:var(--muted);font-size:13px">Majheri Kits — Kathmandu, Nepal</div>
-      <div style="margin-top:8px;color:var(--muted);font-size:13px">© <span id="year"></span> Majheri</div>
-    </footer>
-
-  </div>
-
-  <script>
-    // set year
-    try { document.getElementById('year').textContent = new Date().getFullYear(); } catch(e){}
-  </script>
-</body>
-</html>
-
+  <svg style="display:none;">
+    <symbol id="icon-instagram" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c2.71 0 3.05.01 4.1.06 1.05.05 1.76.2 2.45.49.69.29 1.25.75 1.82 1.32.57.57 1.03 1.13 1.32 1.82.29.69.44 1.4.49 2.45.05 1.05.06 1.4.06 4.1s-.01 3.05-.06 4.1c-.05 1.05-.2 1.76-.49 2.45-.29.69-.75 1.25-1.32 1.82-.57.57-1.13 1.03-1.82 1.32-.69.29-1.4.44-2.45.49-1.05.05-1.4.06-4.1.06s-3.05-.01-4.1-.06c-1.05-.05-1.76-.2-2.45-.49-.69-.29-1.25-.75-1.82-1.32-.57-.57-1.03-1.13-1.32-1.82-.29-.69-.44-1.4-.49-2.45-.05-1.05-.06-1.4-.06-4.1s.01-3.05.06-4.1c.05-1.05.2-1.76.49-2.45.29-.69.75-1.25 1.32-1.82.57-.57 1.13-1.03 1.82-1.32.69-.29 1.4-.44 2.45-.49C8.95 2.01 9.3 2 12 2zm0 1.5c-2.6 0-2.92.01-3.95.06-1.03.05-1.57.18-1.92.32-.35.14-.64.31-.91.59-.27.27-.44.56-.59.91-.14.35-.27.89-.32 1.92C3.51 9.08 3.5 9.4 3.5 12s.01 2.92.06 3.95c.05 1.03.18 1.57.32 1.92.14.35.31.64.59.91.27.27.56.44.91.59.35.14.89.27 1.92.32 1.03.05 1.35.06 3.95.06s2.92-.01 3.95-.06c1.03-.05 1.57-.18 1.92-.32.35-.14.64-.31.91-.59.27-.27.44-.56.59-.91.14-.35.27-.89.32-1.92.05-1.03.06-1.35.06-3.95s-.01-2.92-.06-3.95c-.05-1.03-.18-1.57-.32-1.92-.14-.35-.31-.64-.59-.91-.27-.27-.56-.44-.91-.59-.35-.14-.89-.27-1.92-.32C14.92 3.51 14.6 3.5 12 3.5zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 1.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zm6.5-1.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z"/></symbol>
+    <symbol id="icon-tiktok" viewBox="0 0 24 24"><path fill="currentColor" d="M12.536 2.022c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H8.536V13.84c0 1.294-.77.897-1.465.897-1.49 0-2.616-1.226-2.616-2.915 0-1.688 1.126-2.915 2.616-2.915.695 0 1.465-.397 1.465-.897V4.022c0-.527-.478-.962-1.123-.962-2.112 0-3.826 1.713-3.826 3.826 0 2.112 1.714 3.826 3.826 3.826.96 0 1.713-.39 2.053-.94.34.55.986.94 1.724.94 2.113 0 3.827-1.714 3.827-3.826V1.714c0-.242.096-.546.546-.546h.577c.481 0 .577.242.577.546v6.94c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.613c0-.241.096-.577.577-.577h.546c.382 0 .546.096.546.546v4.613c0 .241-.096.577-.577.577H13.62c-.242 0-.577-.336-.577-.577v-4.61
