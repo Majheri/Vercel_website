@@ -1,142 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Majheri Kits – Premium Emergency Kits</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: "Inter", Arial, sans-serif;
-      background: #ffffff;
-      color: #111;
-      padding: 0;
-    }
-
-    header {
-      padding: 25px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #f1f1f1;
-    }
-
-    header img {
-      height: 70px;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 90px 20px;
-    }
-
-    .hero h1 {
-      font-size: 42px;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      color: #555;
-      max-width: 600px;
-      margin: 10px auto 30px;
-    }
-
-    .products-section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-    }
-
-    .product-card {
-      background: #f9f9f9;
-      border-radius: 14px;
-      overflow: hidden;
-      text-align: center;
-      padding-bottom: 25px;
-      transition: 0.2s ease;
-    }
-
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 260px;
-      object-fit: contain;
-      background: #fff;
-      padding: 20px;
-    }
-
-    .product-title {
-      font-size: 22px;
-      margin-top: 10px;
-      font-weight: 600;
-    }
-
-    .product-price {
-      color: #444;
-      margin-top: 5px;
-      font-size: 18px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      margin-top: 60px;
-      background: #fafafa;
-      border-top: 1px solid #f1f1f1;
-      font-size: 14px;
-      color: #666;
-    }
-  </style>
+  <!-- ... same head as before ... -->
 </head>
-
 <body>
 
-  <header>
-    <img src="images/logo.png" alt="Majheri Logo" />
-    <div style="font-size: 18px; font-weight: 500;">Contact: +977-98XXXXXXX</div>
+  <!-- Dark Mode Toggle -->
+  <div class="dark-mode-toggle">
+    <input type="checkbox" id="darkModeCheckbox" />
+    <label for="darkModeCheckbox">
+      <i class="fas fa-moon"></i>
+      <i class="fas fa-sun"></i>
+    </label>
+  </div>
+
+  <!-- Header with Logo Image -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="/">
+          <img src="images/logo.png" alt="Majheri Kits Logo" class="logo-img">
+        </a>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li class="cart-icon">
+            <a href="#"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+          </li>
+        </ul>
+      </nav>
+      <div class="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
   </header>
 
-  <section class="hero">
-    <h1>Majheri Premium Kits</h1>
-    <p>Portable, high-quality emergency and travel kits designed for safety, adventure, and everyday life in Nepal.</p>
-  </section>
-
-  <section class="products-section">
-    <div class="products-grid">
-
-      <!-- Product 1 -->
-      <div class="product-card">
-        <img src="images/kit1.png" alt="Majheri Kit 1" />
-        <div class="product-title">Majheri Travel First Aid Kit</div>
-        <div class="product-price">Rs. 1,499</div>
-      </div>
-
-      <!-- Product 2 -->
-      <div class="product-card">
-        <img src="images/kit2.png" alt="Majheri Kit 2" />
-        <div class="product-title">Majheri Portable Emergency Kit</div>
-        <div class="product-price">Rs. 1,899</div>
-      </div>
-
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <h2>Premium First Aid Kits</h2>
+      <p>Be prepared anywhere — Travel or Home</p>
+      <a href="#products" class="btn-primary">Shop Now</a>
     </div>
   </section>
 
-  <footer>
-    © 2025 Majheri Kits. All Rights Reserved.
+  <!-- Products Section - Now with real kit images -->
+  <section id="products" class="products">
+    <div class="container">
+      <h2 class="section-title">Our First Aid Kits</h2>
+      <div class="product-grid">
+
+        <!-- Travel First Aid Kit -->
+        <div class="product-card">
+          <img src="images/kit1.png" alt="Majheri Travel First Aid Kit" loading="lazy"/>
+          <h3>Travel First Aid Kit</h3>
+          <p class="description">Compact & lightweight — perfect for hiking, travel, car</p>
+          <p class="price">$89.99</p>
+          <button class="add-to-cart" data-name="Travel First Aid Kit" data-price="89.99">
+            Add to Cart
+          </button>
+        </div>
+
+        <!-- Home First Aid Kit -->
+        <div class="product-card">
+          <img src="images/kit2.png" alt="Majheri Home First Aid Kit" loading="lazy"/>
+          <h3>Home First Aid Kit</h3>
+          <p class="description">Complete 150+ piece kit for family safety at home</p>
+          <p class="price">$149.99</p>
+          <button class="add-to-cart" data-name="Home First Aid Kit" data-price="149.99">
+            Add to Cart
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer stays same -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Majheri Kits. All rights reserved.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
