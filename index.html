@@ -81,33 +81,46 @@
   </section>
 
   <!-- Single Product Section -->
-  <section id="products" class="products">
-    <div class="container">
-      <h2 class="section-title">Our First Aid Kit</h2>
+  <!-- Single Product Section - Side by Side Layout -->
+<section id="products" class="products">
+  <div class="container">
+    <h2 class="section-title">Our First Aid Kit</h2>
+    
+    <div class="product-detail">
       
-      <div class="product-grid single-product">
-        <div class="product-card">
-          <img src="images/kit1.png" 
-               alt="Majheri  First Aid Kit - Compact and lightweight for trekking and travel as well as home use." 
-               loading="lazy">
-          
-          <h3>Majheri Travel First Aid Kit</h3>
-          <p class="description">
-            Compact, lightweight &amp; perfect for trekking, hiking, trips, and car use. 
-            Essential medical supplies in a durable pouch.
-          </p>
-          <p class="price">NPR 2000</p>
-          
-          <button class="add-to-cart" 
-                  data-name="Majheri Travel First Aid Kit" 
-                  data-price="2000">
-            Add to Cart
-          </button>
+      <!-- Left Side: Image -->
+      <div class="product-image">
+        <img src="images/kit1.png" 
+             alt="Majheri Travel First Aid Kit - Compact and lightweight for trekking and travel" 
+             loading="lazy"
+             onerror="this.onerror=null; this.src='https://via.placeholder.com/600x500?text=Majheri+Kit';">
+      </div>
+
+      <!-- Right Side: Information -->
+      <div class="product-info">
+        <h3>Majheri Travel First Aid Kit</h3>
+        
+        <p class="description">
+          Compact, lightweight &amp; perfect for trekking, hiking, trips, and car use. 
+          Contains essential medical supplies in a durable and easy-to-carry pouch.
+        </p>
+        
+        <div class="price">NPR 500</div>
+        
+        <button class="add-to-cart" 
+                data-name="Majheri Travel First Aid Kit" 
+                data-price="500">
+          Add to Cart
+        </button>
+
+        <div class="product-features">
+          <p><strong>Ideal for:</strong> Trekkers, Travelers, Hikers &amp; Family Car</p>
         </div>
       </div>
+      
     </div>
-  </section>
-
+  </div>
+</section>
   <!-- Footer -->
   <footer class="footer" id="contact">
     <div class="container">
