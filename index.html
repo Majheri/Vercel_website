@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Majheri Kits - Travel & Home First Aid Kits</title>
-  <meta name="description" content="Premium first aid kits for travel and home safety."/>
-
+  <meta name="description" content="Premium first aid kits for travel, trekking, and home safety in Nepal. Trusted by trekkers and families."/>
+  <title>Majheri Kits - Premium First Aid Kits for Travel & Home | Nepal</title>
+  
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-
   <!-- Dark Mode Toggle -->
   <div class="dark-mode-toggle">
     <input type="checkbox" id="darkModeCheckbox" />
@@ -22,8 +21,8 @@
   </div>
 
   <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/9779866767850?text=Hi%20Majheri%20Kits!%20I%20want%20to%20order..." 
-     class="whatsapp-float" target="_blank">
+  <a href="https://wa.me/9779866767850?text=Namaste!%20I%20want%20to%20order%20Majheri%20First%20Aid%20Kit" 
+     class="whatsapp-float" target="_blank" aria-label="Order on WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
@@ -31,7 +30,9 @@
   <header class="header">
     <div class="container">
       <div class="logo">
-        <a href="/"><img src="images/logo.png" alt="Majheri Kits Logo" class="logo-img"></a>
+        <a href="/">
+          <img src="images/logo.png" alt="Majheri Kits Logo" class="logo-img">
+        </a>
       </div>
       <nav class="nav">
         <ul>
@@ -39,65 +40,70 @@
           <li><a href="#products">Products</a></li>
           <li><a href="#contact">Contact</a></li>
           <li class="cart-icon">
-            <a href="#"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+            <a href="#" aria-label="Shopping Cart">
+              <i class="fas fa-shopping-cart"></i> 
+              <span class="cart-count">0</span>
+            </a>
           </li>
         </ul>
       </nav>
-      <div class="mobile-menu-toggle">
+      <div class="mobile-menu-toggle" aria-label="Toggle Menu">
         <i class="fas fa-bars"></i>
       </div>
     </div>
   </header>
 
-  <!-- Hero - New Stunning Mountain Image -->
-<section id="home" class="hero">
-  <div class="hero-overlay"></div>
-  <img src="images/hero-mountain.jpg" alt="Nepali trekker with Majheri First Aid Kit in Himalayas" class="hero-bg-image">
-  
-  <div class="container hero-content">
-    <h2>Be Prepared in the Himalayas</h2>
-    <p>Trusted by thousands of Nepali trekkers, travelers & families</p>
-    <div class="hero-buttons">
-      <a href="#products" class="btn-primary">Shop Kits Now</a>
-      <a href="https://wa.me/9779866767850?text=Namaste!%20I%20want%20to%20order%20Majheri%20First%20Aid%20Kit" 
-         class="btn-whatsapp" target="_blank">
-        <i class="fab fa-whatsapp"></i> Order on WhatsApp
-      </a>
-    </div>
-    <div class="trust-badges">
-      <span><i class="fas fa-truck"></i> Free Delivery Nationwide</span>
-      <span><i class="fas fa-money-bill-wave"></i> Cash on Delivery</span>
-      <span><i class="fas fa-shield-alt"></i> 100% Original Guaranteed</span>
-    </div>
-  </div>
-</section>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <img src="images/hero-mountain.jpg" 
+         alt="Nepali trekker with Majheri First Aid Kit in the Himalayas" 
+         class="hero-bg-image">
 
-  <!-- Products -->
+    <div class="container hero-content">
+      <h1>Be Prepared in the Himalayas</h1>
+      <p>Trusted first aid kits for Nepali trekkers, travelers &amp; families</p>
+      
+      <div class="hero-buttons">
+        <a href="#products" class="btn-primary">Shop Now</a>
+        <a href="https://wa.me/9779866767850?text=Namaste!%20I%20want%20to%20order%20Majheri%20First%20Aid%20Kit" 
+           class="btn-whatsapp" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order on WhatsApp
+        </a>
+      </div>
+
+      <div class="trust-badges">
+        <span><i class="fas fa-truck"></i> Free Delivery Nationwide</span>
+        <span><i class="fas fa-money-bill-wave"></i> Cash on Delivery</span>
+        <span><i class="fas fa-shield-alt"></i> 100% Original Guaranteed</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Single Product Section -->
   <section id="products" class="products">
     <div class="container">
-      <h2 class="section-title">Our First Aid Kits</h2>
-      <div class="product-grid">
-
+      <h2 class="section-title">Our First Aid Kit</h2>
+      
+      <div class="product-grid single-product">
         <div class="product-card">
-          <img src="images/kit1.png" alt="Majheri Travel First Aid Kit" loading="lazy"/>
-          <h3>Travel First Aid Kit</h3>
-          <p class="description">Compact, lightweight, perfect for trips, hiking & cars</p>
-          <p class="price">Nrs.500</p>
-          <button class="add-to-cart" data-name="Travel First Aid Kit" data-price="89.99">
+          <img src="images/kit1.png" 
+               alt="Majheri Travel First Aid Kit - Compact and lightweight for trekking and travel" 
+               loading="lazy">
+          
+          <h3>Majheri Travel First Aid Kit</h3>
+          <p class="description">
+            Compact, lightweight &amp; perfect for trekking, hiking, trips, and car use. 
+            Essential medical supplies in a durable pouch.
+          </p>
+          <p class="price">NPR 500</p>
+          
+          <button class="add-to-cart" 
+                  data-name="Majheri Travel First Aid Kit" 
+                  data-price="500">
             Add to Cart
           </button>
         </div>
-
-        <div class="product-card">
-          <img src="images/kit2.png" alt="Majheri Home First Aid Kit" loading="lazy"/>
-          <h3>Home First Aid Kit</h3>
-          <p class="description"> Complete family safety solution</p>
-          <p class="price">Nrs.900</p>
-          <button class="add-to-cart" data-name="Home First Aid Kit" data-price="149.99">
-            Add to Cart
-          </button>
-        </div>
-
       </div>
     </div>
   </section>
@@ -105,14 +111,16 @@
   <!-- Footer -->
   <footer class="footer" id="contact">
     <div class="container">
-      <p>Contact us: <strong>+977 986-6767850</strong> (WhatsApp & Viber)</p>
+      <p><strong>Contact us:</strong> <a href="tel:+9779866767850">+977 986-6767850</a> (WhatsApp &amp; Viber)</p>
+      
       <div class="social-links">
-        <a href="https://instagram.com/majheri.kits" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://tiktok.com/@majheri.kits" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://wa.me/9779866767850" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="vnd.viber://chat?number=%2B9779866767850" target="_blank"><i class="fab fa-viber"></i></a>
+        <a href="https://instagram.com/majheri.kits" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://tiktok.com/@majheri.kits" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/9779866767850" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="viber://chat?number=%2B9779866767850" target="_blank" aria-label="Viber"><i class="fab fa-viber"></i></a>
       </div>
-      <p style="margin-top: 20px; font-size: 0.9rem;">© 2025 Majheri Kits. All rights reserved.</p>
+
+      <p class="copyright">© 2025 Majheri Kits. All rights reserved.</p>
     </div>
   </footer>
 
